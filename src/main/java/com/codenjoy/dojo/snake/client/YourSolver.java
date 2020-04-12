@@ -27,13 +27,10 @@ import com.codenjoy.dojo.client.Solver;
 import com.codenjoy.dojo.client.WebSocketRunner;
 import com.codenjoy.dojo.services.Dice;
 import com.codenjoy.dojo.services.Direction;
-import com.codenjoy.dojo.services.Point;
 import com.codenjoy.dojo.services.RandomDice;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
 
 /**
  * User: your name
@@ -52,8 +49,8 @@ public class YourSolver implements Solver<Board> {
     public String get(Board board) {
 
 
-          LeeApp l=new LeeApp(board);
-          Direction d=l.solve();
+          MyAlgorithm snake=new MyAlgorithm(board);
+          Direction d=snake.solve();
           return d.toString();
 
 

@@ -76,10 +76,23 @@ public class Board extends AbstractBoard<Elements> {
         }
     }
 
+    public Point getTail(){
+        List<Point> result = get(
+                Elements.TAIL_END_DOWN,
+                Elements.TAIL_END_LEFT,
+                Elements.TAIL_END_RIGHT,
+                Elements.TAIL_END_UP);
+        if (result.isEmpty()) {
+            return null;
+        } else {
+            return result.get(0);
+        }
+    }
+
     public List<Point> getBarriers() {
         List<Point> result = getSnake();
-        result.addAll(getStones());
         result.addAll(getWalls());
+        result.addAll(getStones());
         return result;
     }
 
@@ -110,17 +123,19 @@ public class Board extends AbstractBoard<Elements> {
     @Override
     public String toString() {
         return String.format("Board:\n%s\n" +
-            "Apple at: %s\n" +
-            "Stones at: %s\n" +
+         //   "Apple at: %s\n" +
+         //   "Stones at: %s\n" +
             "Head at: %s\n" +
-            "Snake at: %s\n" +
+            "Snake size: %d\n" +
+          //  "Snake at: %s\n" +
             "Current direction: %s",
                 boardAsString(),
-                getApples(),
-                getStones(),
+            //    getApples(),
+            //    getStones(),
                 getHead(),
-                getSnake(),
-                getSnakeDirection());
+                getSnake().size(),
+            //    getSnake(),
+               getSnakeDirection());
     }
 
     public List<Point> getStones() {
