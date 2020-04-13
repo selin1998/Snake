@@ -8,9 +8,7 @@ import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 public class Lee {
- // Board b;
- // LPoint tail=LPoint.of(b.getHead().getX(),b.getHead().getY());
-  int recursion=0;
+
   private final List<LPoint> deltas = Arrays.asList(
       LPoint.of(0, -1), LPoint.of(-1, 0),
       LPoint.of(1, 0), LPoint.of(0, 1));
@@ -102,30 +100,6 @@ public class Lee {
       return Optional.empty();
     }
 
-
-//    if (!found){
-//    //  initializeBoard(obstacles);
-//    //  counter[0]=0;
-//      // (neighboursByValue(tail,0).get(0))!=null?neighboursByValue(tail,0).get(0):LPoint.of(8,8);
-//      curr.clear();
-
-//    //  return Optional.empty();
-//      return trace(start,f,obstacles,tail);
-//    }
-    // reconstruct the path
-//    LinkedList<LPoint> path = new LinkedList<>();
-//    path.add(finish);
-//    set(start, 0);
-//    LPoint curr_p = finish;
-//    while (counter[0] > 0) {
-//      counter[0]--;
-//      LPoint prev_p = neighboursByValue(curr_p, counter[0]).get(0);// pick any point
-//      path.addFirst(prev_p);
-//      curr_p = prev_p;
-//    }
-
-  //  printMe(path);
-  //  return Optional.of(path);
     return returnPath(start,finish,counter);
   }
 
@@ -143,23 +117,6 @@ public class Lee {
     return Optional.of(path);
   }
 
-//
-//  public String formatted(LPoint point, List<LPoint> path) {
-//    int val = get(point);
-//    if (val == OBSTACLE) return " XX";
-//    if (path.isEmpty()) return String.format("%3d", val);       // intermediate steps
-//    if (path.contains(point)) return String.format("%3d", val); // final step
-//    return " --";
-//  }
 
-//  void printMe(List<LPoint> path) {
-//    String s = IntStream.range(0, height).mapToObj(y ->
-//        IntStream.range(0, width)
-//            .mapToObj(x -> LPoint.of(x, y))
-//            .map(p -> formatted(p, path))
-//            .collect(Collectors.joining())
-//    ).collect(Collectors.joining("\n"));
-//    System.out.printf("%s\n\n", s);
-//  }
 
 }
